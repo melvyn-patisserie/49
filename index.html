@@ -4,49 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melvyn Jean-Pierre - Portfolio Pâtisserie</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
     <style>
+        /* --- 
+           Thème Graphique "Pâtisserie"
+           Polices: "Playfair Display" (titres, élégant), "Lato" (texte, lisible)
+           Couleurs: 
+             - #fdfaf5 (Fond "crème")
+             - #4a2c2a (Texte "chocolat noir")
+             - #8b4513 (Accents "caramel")
+             - #e0d6c3 (Bordures "biscuit")
+        --- */
+
         /* --- Styles Généraux --- */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fdfcfb;
-            color: #333;
-            line-height: 1.6;
+            background-color: #fdfaf5; /* Fond "crème" */
+            color: #4a3c3a; /* Texte "chocolat" plus doux */
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        h1, h2 {
-            font-family: "Georgia", serif;
-            color: #4a2c2a; /* Une couleur "chocolat" */
-            font-weight: bold;
+        h1, h2, h3 {
+            font-family: "Playfair Display", "Georgia", serif;
+            color: #4a2c2a; /* Titres "chocolat noir" */
+            font-weight: 700;
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
         }
 
         h2 {
-            font-size: 2em;
-            border-bottom: 2px solid #e0d6c3; /* Couleur "biscuit" */
-            padding-bottom: 10px;
+            font-size: 2.5em;
+            text-align: center;
+            border-bottom: 2px solid #e0d6c3; /* Bordure "biscuit" */
+            padding-bottom: 15px;
             margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #8b4513; /* Titre plat "caramel" */
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.05em;
         }
 
         a {
-            color: #8b4513; /* Couleur "caramel" */
+            color: #8b4513;
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #c08552;
         }
 
         /* --- Navigation --- */
         nav {
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -60,8 +96,9 @@
         }
 
         nav .logo {
-            font-size: 1.5em;
-            font-weight: bold;
+            font-size: 1.6em;
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
             color: #4a2c2a;
         }
 
@@ -73,56 +110,78 @@
         }
 
         nav li {
-            margin-left: 25px;
-        }
-
-        nav a {
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #c08552; /* Une teinte plus claire */
+            margin-left: 30px;
         }
 
         /* --- Header (Accueil) --- */
         header {
-            background-color: #f4f0e8;
-            padding: 80px 0;
+            /* Utilisation d'une de vos belles photos de viennoiseries ! */
+            background-image: url('images/Plat-3.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
             text-align: center;
+            position: relative;
+        }
+
+        /* Superposition sombre pour la lisibilité du texte */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 2;
         }
 
         header p {
-            font-size: 1.2em;
-            color: #555;
+            font-size: 1.3em;
+            color: #fff;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+            max-width: 500px;
+            margin: 10px auto 0 auto;
         }
 
-        /* --- Sections --- */
-        section {
-            padding: 40px 0;
+        /* --- Section À Propos --- */
+        #a-propos {
+             padding: 60px 0;
         }
-
-        /* --- À Propos --- */
         #a-propos .content {
             display: flex;
-            gap: 30px;
+            flex-wrap: wrap;
+            gap: 40px;
         }
 
         #a-propos .text {
             flex: 2;
+            min-width: 300px;
+        }
+        #a-propos .text p:first-child {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4a2c2a;
         }
 
         #a-propos .skills {
             flex: 1;
-            background-color: #f9f9f9;
-            padding: 20px;
+            background-color: #fff;
+            padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            min-width: 250px;
+            border-top: 4px solid #e0d6c3;
         }
 
         #a-propos .skills h3 {
             margin-top: 0;
             color: #4a2c2a;
+            font-size: 1.5em;
         }
 
         #a-propos .skills ul {
@@ -131,56 +190,100 @@
         }
 
         #a-propos .skills li {
-            background-color: #e0d6c3;
-            color: #4a2c2a;
-            padding: 8px 12px;
-            margin-bottom: 8px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            background-color: #fdfaf5;
+            border: 1px solid #e0d6c3;
+            color: #4a3c3a;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
             font-weight: 500;
+        }
+
+        /* --- Section Réalisations (Nouveau format) --- */
+        #realisations {
+            background-color: #ffffff;
+            padding: 60px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        #realisations > p { /* Paragraphe d'intro */
             text-align: center;
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: -20px auto 60px auto;
+            color: #555;
         }
 
-        /* --- Galerie Réalisations --- */
-        .gallery {
+        .dish-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 80px; /* Espace entre chaque plat */
+        }
+
+        .dish-card {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: 1fr; /* 1 colonne sur mobile */
+            gap: 30px;
+            align-items: center;
+        }
+        
+        /* 2 colonnes sur tablette et bureau */
+        @media (min-width: 768px) {
+            .dish-card {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            /* Alternance du layout : image à droite pour le 2e plat */
+            .dish-card:nth-child(even) .dish-gallery {
+                order: 2;
+            }
+            .dish-card:nth-child(even) .dish-info {
+                order: 1;
+            }
         }
 
-        .gallery-item {
-            border: 1px solid #eee;
+        .dish-gallery {
+            display: grid;
+            /* Grille responsive pour les photos */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+        }
+
+        .dish-gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover; /* Recadre proprement */
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+        
+        .dish-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            z-index: 10;
+            position: relative;
+        }
+        
+        /* Classe spéciale pour la photo unique des Makrouts */
+        .dish-gallery .full-width-img {
+            grid-column: 1 / -1; /* Prend toute la largeur */
+            height: 300px; 
+        }
+        
+        .dish-info {
+            padding: 10px;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover; /* Recadre l'image proprement */
-            display: block;
-        }
-
-        .gallery-item p {
-            text-align: center;
-            font-weight: 600;
-            padding: 15px;
-            margin: 0;
-            background-color: #fff;
-        }
-
-        /* --- Contact --- */
+        /* --- Section Contact --- */
         #contact {
-            background-color: #f4f0e8;
+            padding: 60px 0;
             text-align: center;
+        }
+        #contact h2 {
+             border: none;
         }
 
         #contact p {
@@ -194,21 +297,24 @@
             list-style: none;
             padding: 0;
             margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
         }
 
         .contact-details li {
-            margin-bottom: 10px;
             font-size: 1.1em;
             font-weight: 500;
         }
 
-        /* --- Footer --- */
+        /* --- Pied de Page --- */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             background-color: #4a2c2a;
-            color: #fdfcfb;
-            margin-top: 40px;
+            color: #fdfaf5;
+            margin-top: 0;
         }
 
     </style>
@@ -217,7 +323,7 @@
 
     <nav>
         <div class="container">
-            <div class="logo">MJP</div>
+            <div class="logo">Melvyn J-P</div>
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#a-propos">À Propos</a></li>
@@ -227,9 +333,11 @@
         </div>
     </nav>
 
-    <header id="accueil" class="container">
-        [cite_start]<h1>[cite: 1, 2] Melvyn Jean-Pierre</h1>
-        <p>Passionné de pâtisserie, à la recherche d'une formation</p>
+    <header id="accueil">
+        <div class="container">
+            <h1>Melvyn Jean-Pierre</h1>
+            <p>Passionné de pâtisserie, en recherche d'une formation</p>
+        </div>
     </header>
 
     <main>
@@ -237,75 +345,100 @@
             <h2>À Propos de Moi</h2>
             <div class="content">
                 <div class="text">
-                    [cite_start]<p>[cite: 4] Je suis un jeune homme motivé, sérieux et prêt à m'investir pleinement dans un emploi.</p>
+                    <p>Je suis un jeune homme motivé, sérieux et prêt à m'investir pleinement pour devenir Pâtissier-Boulanger.</p>
                     <p>
-                        Ma passion pour la pâtisserie et la boulangerie est ce qui m'anime aujourd'hui. [cite_start]Je suis fasciné par la transformation des ingrédients bruts en produits raffinés et gourmands. [cite: 5] Je suis déterminé à apprendre rapidement et à donner le meilleur de moi-même pour maîtriser cet art.
+                        Ma passion pour la pâtisserie est ce qui m'anime. Je suis fasciné par la transformation des ingrédients, la précision technique et la créativité qu'exige cet art. Je suis déterminé à apprendre rapidement et à donner le meilleur de moi-même.
                     </p>
                     <p>
-                        Mon objectif est clair : trouver un formateur ou une entreprise qui me permettra d'accéder à une formation conventionnelle et de débuter ma carrière dans ce secteur.
+                        Mon objectif est de trouver un formateur ou une entreprise qui me permettra d'accéder à une formation conventionnelle et de débuter ma carrière.
                     </p>
                     <p>
-                        [cite_start][cite: 16, 18] [cite_start]Mon expérience de 2 mois et 3 semaines en supermarché (mise en rayon et vente) m'a permis de développer mon sens du service client et ma rigueur. [cite: 7, 8] [cite_start]Je suis titulaire d'un Baccalauréat et du Brevet des collèges. [cite: 9] [cite_start]Je suis également en possession du permis B, ce qui me rend mobile. [cite: 15] (Avrillé 49240).
+                        Mon expérience de 2 mois et 3 semaines en supermarché m'a appris la rigueur et le sens du service. Titulaire d'un Baccalauréat et du permis B, je suis mobile (Avrillé 49240) et autonome.
                     </p>
                 </div>
                 <aside class="skills">
                     <h3>Mes Atouts</h3>
                     <ul>
-                        [cite_start]<li>[cite: 25] Sérieux</li>
-                        [cite_start]<li>[cite: 24] Autonomie</li>
-                        [cite_start]<li>[cite: 26] Envie d'apprendre</li>
-                        [cite_start]<li>[cite: 23] Curiosité</li>
-                        [cite_start]<li>[cite: 22] Gestion du Stress</li>
-                        [cite_start]<li>[cite: 19] [cite_start]Langues : Français [cite: 20] & Anglais</li>
+                        <li>Sérieux & Rigueur</li>
+                        <li>Autonomie & Mobilité (Permis B)</li>
+                        <li>Envie d'apprendre</li>
+                        <li>Curiosité technique</li>
+                        <li>Gestion du Stress</li>
+                        <li>Langues : Français & Anglais</li>
                     </ul>
                 </aside>
             </div>
         </section>
 
-        <section id="realisations" class="container">
-            <h2>Mes Réalisations</h2>
-            <p>Voici quelques exemples de produits que j'ai eu le plaisir de cuisiner par passion. (N'hésitez pas à remplacer ces exemples par vos propres photos)</p>
+        <section id="realisations">
+            <div class="container">
+                <h2>Mes Réalisations</h2>
+                <p>Passionné et autodidacte, voici quelques-unes des créations dont je suis le plus fier. Chaque pièce est réalisée avec soin et une envie constante de m'améliorer.</p>
 
-            <div class="gallery">
-                
-                <div class="gallery-item">
-                    <img src="images/votre-photo-1.jpg" alt="Description de votre pâtisserie">
-                    <p>Ex: Tarte au Citron Meringuée</p>
-                </div>
+                <div class="dish-showcase">
+                    
+                    <div class="dish-card">
+                        <div class="dish-gallery">
+                            <img src="images/Plat-1.1.jpeg" alt="Flanc marbré vanille chocolat - vue de côté">
+                            <img src="images/Plat-1.2.jpeg" alt="Flanc marbré vanille chocolat - vue de dessus">
+                            <img src="images/Plat-1.3.jpeg" alt="Flanc marbré vanille chocolat - autre angle">
+                        </div>
+                        <div class="dish-info">
+                            <h3>Flanc Marbré Vanille Chocolat</h3>
+                            <p>
+                                Un classique revisité. Ce flan pâtissier combine la douceur d'une vanille infusée avec l'intensité d'un chocolat riche. La pâte brisée maison, croustillante et beurrée, contraste parfaitement avec l'appareil onctueux et fondant. Un vrai défi technique pour obtenir un marbrage élégant et une cuisson parfaite à cœur.
+                            </p>
+                        </div>
+                    </div>
 
-                <div class="gallery-item">
-                    <img src="images/votre-photo-2.jpg" alt="Description de votre pâtisserie">
-                    <p>Ex: Macarons Pistache</p>
-                </div>
+                    <div class="dish-card">
+                        <div class="dish-gallery">
+                            <img src="images/Plat-2.1.jpeg" alt="Croissant pur beurre brillant">
+                            <img src="images/Plat-3.jpeg" alt="Assortiment de viennoiseries sur plateau">
+                            <img src="images/Plat-2.2.jpeg" alt="Croissant avec feuilletage très visible">
+                            <img src="images/Plat-2.3.jpeg" alt="Croissants dorés sur plaque de cuisson">
+                            <img src="images/Plat-2.4.jpeg" alt="Différentes formes de viennoiseries maison">
+                            <img src="images/Plat-2.5.jpeg" alt="Croissant tenu à la main, vue du feuilletage">
+                        </div>
+                        <div class="dish-info">
+                            <h3>Croissants & Viennoiseries</h3>
+                            <p>
+                                Le travail de la pâte levée feuilletée est une de mes grandes passions. Obtenir ce feuilletage alvéolé, croustillant à l'extérieur et incroyablement moelleux à l'intérieur, demande rigueur et patience. Ces croissants pur beurre et pains au chocolat témoignent de nombreuses heures de pratique du tourage, de la fermentation et de la maîtrise des températures.
+                            </p>
+                        </div>
+                    </div>
 
-                <div class="gallery-item">
-                    <img src="images/votre-photo-3.jpg" alt="Description de votre pâtisserie">
-                    <p>Ex: Pain au Levain Maison</p>
-                </div>
-                
-                 <div class="gallery-item">
-                    <img src="images/votre-photo-4.jpg" alt="Description de votre pâtisserie">
-                    <p>Ex: Fraisier</p>
-                </div>
+                    <div class="dish-card">
+                        <div class="dish-gallery">
+                            <img src="images/Plat-4.jpeg" alt="Makrouts fourrés sur une grille" class="full-width-img">
+                        </div>
+                        <div class="dish-info">
+                            <h3>Makrouts</h3>
+                            <p>
+                                Une exploration des pâtisseries du monde. Ces makrouts sont des gâteaux de semoule fourrés d'une pâte de dattes (ou ici, une confiture maison), puis frits et délicatement enrobés de miel chaud. C'est un équilibre que j'aime travailler, entre le granuleux de la semoule, le fondant du cœur et la douceur du sirop.
+                            </p>
+                        </div>
+                    </div>
 
+                </div>
             </div>
         </section>
 
         <section id="contact" class="container">
             <h2>Contactez-moi</h2>
             <p>
-                Je suis passionné et prêt à m'investir. Si mon profil vous intéresse pour une formation ou un apprentissage en pâtisserie ou boulangerie, n'hésitez pas à me contacter.
+                Prêt à m'investir, je suis à votre disposition pour discuter d'une opportunité de formation ou d'apprentissage en pâtisserie ou boulangerie.
             </p>
             <ul class="contact-details">
-                [cite_start]<li>[cite: 11] Email : <a href="mailto:melvynjpierre@gmail.com">melvynjpierre@gmail.com</a></li>
-                [cite_start]<li>[cite: 10] Téléphone : <a href="tel:0636202478">06 36 20 24 78</a></li>
-                [cite_start]<li>[cite: 15] Localisation : Avrillé 49240</li>
+                <li>Email : <a href="mailto:melvynjpierre@gmail.com">melvynjpierre@gmail.com</a></li>
+                <li>Téléphone : <a href="tel:0636202478">06 36 20 24 78</a></li>
+                <li>Localisation : Avrillé 49240 (Mobile)</li>
             </ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Melvyn Jean-Pierre. Tous droits réservés.</p>
+        <p>&copy; 2024 Melvyn Jean-Pierre. Construit avec passion.</p>
     </footer>
 
 </body>
